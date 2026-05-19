@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shantanu Bhapkar — Resume</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Fraunces:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f2ed;
+    --ink: #1a1814;
+    --muted: #6b6760;
+    --accent: #2a5c3f;
+    --accent-light: #e8f0eb;
+    --rule: #ccc9c0;
+    --mono: 'IBM Plex Mono', monospace;
+    --serif: 'Fraunces', serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--mono);
+    font-size: 11.5px;
+    line-height: 1.6;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    padding: 14mm 16mm 14mm 16mm;
+    background: #fff;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 10px;
+    margin-bottom: 14px;
+    gap: 12px;
+  }
+
+  .name {
+    font-family: var(--serif);
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    line-height: 1;
+    color: var(--ink);
+  }
+
+  .title-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--accent);
+    background: var(--accent-light);
+    border: 1px solid var(--accent);
+    padding: 2px 8px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 6px;
+    display: inline-block;
+  }
+
+  .contacts {
+    text-align: right;
+    font-size: 10.5px;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+
+  .contacts a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  /* ── LAYOUT ── */
+  .body {
+    display: grid;
+    grid-template-columns: 1fr 58mm;
+    gap: 20px;
+  }
+
+  /* ── SECTIONS ── */
+  .section {
+    margin-bottom: 16px;
+  }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 4px;
+    margin-bottom: 10px;
+  }
+
+  /* ── PROJECTS ── */
+  .project {
+    margin-bottom: 12px;
+    padding-left: 10px;
+    border-left: 2px solid var(--accent-light);
+  }
+
+  .project:hover {
+    border-left-color: var(--accent);
+  }
+
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 2px;
+  }
+
+  .project-name {
+    font-family: var(--serif);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .project-links {
+    display: flex;
+    gap: 8px;
+    white-space: nowrap;
+  }
+
+  .project-link {
+    font-size: 9.5px;
+    color: var(--accent);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .project-stack {
+    font-size: 9.5px;
+    color: var(--accent);
+    margin-bottom: 3px;
+    font-weight: 500;
+  }
+
+  .project-desc {
+    font-size: 10.5px;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+
+  .project-desc li {
+    list-style: none;
+    padding-left: 10px;
+    position: relative;
+    margin-bottom: 1px;
+  }
+
+  .project-desc li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 9px;
+  }
+
+  /* ── EDUCATION ── */
+  .edu-item {
+    margin-bottom: 10px;
+  }
+
+  .edu-degree {
+    font-family: var(--serif);
+    font-size: 12.5px;
+    font-weight: 600;
+  }
+
+  .edu-school {
+    font-size: 10.5px;
+    color: var(--muted);
+  }
+
+  .edu-meta {
+    font-size: 9.5px;
+    color: var(--accent);
+    margin-top: 1px;
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar .section-label {
+    margin-top: 0;
+  }
+
+  /* ── SKILLS ── */
+  .skill-group {
+    margin-bottom: 9px;
+  }
+
+  .skill-group-name {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .tag {
+    font-size: 9.5px;
+    background: var(--accent-light);
+    color: var(--accent);
+    border: 1px solid #c8dece;
+    padding: 1px 6px;
+    border-radius: 2px;
+    font-weight: 500;
+  }
+
+  .tag.dim {
+    background: #f0ede8;
+    color: var(--muted);
+    border-color: var(--rule);
+  }
+
+  /* ── ABOUT ── */
+  .about-text {
+    font-size: 10.5px;
+    color: var(--muted);
+    line-height: 1.65;
+    font-style: italic;
+  }
+
+  /* ── STRENGTH / LANG ITEMS ── */
+  .strength-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    margin-bottom: 6px;
+    font-size: 10.5px;
+    color: var(--ink);
+  }
+
+  .strength-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-top: 5px;
+    flex-shrink: 0;
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: #fff; }
+    .page { margin: 0; padding: 12mm 14mm; box-shadow: none; }
+  }
+
+  @media screen {
+    body { padding: 20px; }
+    .page { box-shadow: 0 4px 40px rgba(0,0,0,0.12); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div>
+      <div class="name">Shantanu Bhapkar</div>
+      <div class="title-tag">Software Developer</div>
+    </div>
+    <div class="contacts">
+      <div>Nagpur, Maharashtra</div>
+      <div><a href="mailto:shantanubhapkar@email.com">shantanubhapkar@email.com</a></div>
+      <div><a href="tel:+919172557279">+91 9172557279</a></div>
+      <div><a href="https://github.com/ShantanuBhapkar">github.com/ShantanuBhapkar</a></div>
+      <div><a href="https://www.linkedin.com/in/shantanu-bhapkar-370839243">linkedin.com/in/shantanu-bhapkar</a></div>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- LEFT COLUMN -->
+    <div class="main">
+
+      <!-- ABOUT -->
+      <div class="section">
+        <div class="section-label">About</div>
+        <p class="about-text">
+          Backend-focused developer with hands-on experience building REST APIs using Node.js, Express, PostgreSQL, MongoDB and Redis. Comfortable with system design concepts like caching strategies and rate limiting. Looking for a backend or full-stack role where I can contribute and grow.
+        </p>
+      </div>
+
+      <!-- PROJECTS -->
+      <div class="section">
+        <div class="section-label">Projects</div>
+
+        <!-- URL Shortener -->
+        <div class="project">
+          <div class="project-header">
+            <span class="project-name">URL Shortener API</span>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/ShantanuBhapkar/URL_Shortner">GitHub ↗</a>
+              <a class="project-link" href="https://url-shortner-iql9.onrender.com">Live ↗</a>
+            </div>
+          </div>
+          <div class="project-stack">Node.js · Express · TypeScript · PostgreSQL · Redis</div>
+          <ul class="project-desc">
+            <li>Built a URL shortening service with Redis caching layer to reduce database load</li>
+            <li>Implemented click tracking and analytics endpoint per short code</li>
+            <li>Added rate limiting (10 req/min per IP) to prevent spam and abuse</li>
+            <li>Deployed on Render — TypeScript backend with PostgreSQL as persistent store</li>
+          </ul>
+        </div>
+
+        <!-- Post Away -->
+        <div class="project">
+          <div class="project-header">
+            <span class="project-name">Post Away — Social Media API</span>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/ShantanuBhapkar/Post-Away-socialmedia">GitHub ↗</a>
+              <a class="project-link" href="https://post-away-api.onrender.com">Live ↗</a>
+            </div>
+          </div>
+          <div class="project-stack">Node.js · Express · MongoDB · Mongoose · JWT</div>
+          <ul class="project-desc">
+            <li>Built a full-featured social media REST API with user auth, posts, comments, likes and friend requests</li>
+            <li>Implemented JWT-based authentication middleware protecting all private routes</li>
+            <li>Added OTP-based password reset flow with email delivery</li>
+            <li>Deployed on Render with MongoDB Atlas as cloud database</li>
+          </ul>
+        </div>
+
+        <!-- E-Commerce -->
+        <div class="project">
+          <div class="project-header">
+            <span class="project-name">E-Commerce Backend API</span>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/ShantanuBhapkar/E-Commerce-API">GitHub ↗</a>
+            </div>
+          </div>
+          <div class="project-stack">Node.js · Express.js · MongoDB · Mongoose · JWT</div>
+          <ul class="project-desc">
+            <li>Built scalable REST API with product catalog, categories, shopping cart, order management and JWT auth</li>
+            <li>Used MongoDB transactions to ensure atomicity across cart and order operations</li>
+            <li>Wrote aggregation pipelines for cart totals, order summaries and product filtering by category</li>
+            <li>Optimised MongoDB schemas for query performance; added request logging and robust central error handling</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- EDUCATION -->
+      <div class="section">
+        <div class="section-label">Education</div>
+        <div class="edu-item">
+          <div class="edu-degree">B.E. — Electronics &amp; Telecommunication</div>
+          <div class="edu-school">Pimpri Chinchwad College of Engineering, Pune</div>
+          <div class="edu-meta">2020 – 2024 &nbsp;·&nbsp; CGPA: 7.5 / 10</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-degree">HSC — Science</div>
+          <div class="edu-school">Adarsh Sanskar Vidyalay</div>
+          <div class="edu-meta">2020 &nbsp;·&nbsp; 75%</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN / SIDEBAR -->
+    <div class="sidebar">
+
+      <!-- SKILLS -->
+      <div class="section">
+        <div class="section-label">Skills</div>
+
+        <div class="skill-group">
+          <div class="skill-group-name">Backend</div>
+          <div class="skill-tags">
+            <span class="tag">Node.js</span>
+            <span class="tag">Express.js</span>
+            <span class="tag">REST API</span>
+            <span class="tag">JWT Auth</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-name">Databases</div>
+          <div class="skill-tags">
+            <span class="tag">MongoDB</span>
+            <span class="tag">Mongoose</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">MySQL / SQL</span>
+            <span class="tag">Redis</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-name">Frontend</div>
+          <div class="skill-tags">
+            <span class="tag dim">HTML</span>
+            <span class="tag dim">CSS</span>
+            <span class="tag dim">JavaScript</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-name">Languages</div>
+          <div class="skill-tags">
+            <span class="tag dim">Java</span>
+            <span class="tag dim">JavaScript</span>
+            <span class="tag dim">TypeScript</span>
+            <span class="tag dim">SQL</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group-name">Tools &amp; Concepts</div>
+          <div class="skill-tags">
+            <span class="tag dim">Git</span>
+            <span class="tag dim">Postman</span>
+            <span class="tag dim">Render</span>
+            <span class="tag dim">Caching</span>
+            <span class="tag dim">Rate Limiting</span>
+            <span class="tag dim">Transactions</span>
+            <span class="tag dim">Aggregation</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- STRENGTHS -->
+      <div class="section">
+        <div class="section-label">Strengths</div>
+        <div class="strength-item">
+          <div class="strength-dot"></div>
+          <span>API design &amp; RESTful architecture</span>
+        </div>
+        <div class="strength-item">
+          <div class="strength-dot"></div>
+          <span>Database modelling — SQL &amp; NoSQL</span>
+        </div>
+        <div class="strength-item">
+          <div class="strength-dot"></div>
+          <span>Authentication &amp; security (JWT, OTP)</span>
+        </div>
+        <div class="strength-item">
+          <div class="strength-dot"></div>
+          <span>Performance with caching (Redis)</span>
+        </div>
+        <div class="strength-item">
+          <div class="strength-dot"></div>
+          <span>MongoDB transactions &amp; aggregation</span>
+        </div>
+      </div>
+
+      <!-- LANGUAGES -->
+      <div class="section">
+        <div class="section-label">Languages</div>
+        <div class="strength-item">
+          <div class="strength-dot"></div>
+          <span>English — Professional</span>
+        </div>
+        <div class="strength-item">
+          <div class="strength-dot"></div>
+          <span>Marathi — Native</span>
+        </div>
+        <div class="strength-item">
+          <div class="strength-dot"></div>
+          <span>Hindi — Fluent</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
